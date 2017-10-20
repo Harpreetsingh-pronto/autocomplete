@@ -1,3 +1,7 @@
+/**
+* 
+**/
+
 import { Component, NgModule } from '@angular/core';
 
 @Component({
@@ -14,6 +18,9 @@ import { Component, NgModule } from '@angular/core';
 	`
 })
 
+/**
+* Component class to handle componenet relate actions
+**/
 export class MyAutocomplete {
 
 	randomWordBucket: String[];
@@ -29,6 +36,10 @@ export class MyAutocomplete {
 		this.selectedIndex = -1;
 	}
 
+	/**
+	* on any key press from keyboard, a new bucketlist of suggestion is generated based on text input
+	**/
+
 	onKey(inputString : String) {
 
 		let suggestionList = new Array();
@@ -42,6 +53,10 @@ export class MyAutocomplete {
 		this.filteredSuggestionList = suggestionList;
 	}
 
+	/**
+	* function to select the word and add into the textarea
+	**/
+
 	fillTextArea(suggestion : String) {
 		this.inputString = this.inputString.substring(0, this.inputString.lastIndexOf(" ")) + " " + suggestion + " ";
 		this.filteredSuggestionList = [];
@@ -49,6 +64,9 @@ export class MyAutocomplete {
 		this.selectedItem = "";
 	}
 
+	/**
+	* To scroll into the list of suggested words
+	**/
 	scrollItems(eventCode: String) {
 
 		switch (eventCode) {
