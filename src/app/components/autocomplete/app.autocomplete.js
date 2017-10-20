@@ -19,6 +19,9 @@ var MyAutocomplete = (function () {
         this.inputString = "";
         this.selectedIndex = -1;
     }
+    /**
+    * on any key press from keyboard, a new bucketlist of suggestion is generated based on text input
+    **/
     MyAutocomplete.prototype.onKey = function (inputString) {
         var suggestionList = new Array();
         var totalWords = inputString.split(' ');
@@ -29,12 +32,18 @@ var MyAutocomplete = (function () {
         });
         this.filteredSuggestionList = suggestionList;
     };
+    /**
+    * function to select the word and add into the textarea
+    **/
     MyAutocomplete.prototype.fillTextArea = function (suggestion) {
         this.inputString = this.inputString.substring(0, this.inputString.lastIndexOf(" ")) + " " + suggestion + " ";
         this.filteredSuggestionList = [];
         this.selectedIndex = -1;
         this.selectedItem = "";
     };
+    /**
+    * To scroll into the list of suggested words
+    **/
     MyAutocomplete.prototype.scrollItems = function (eventCode) {
         switch (eventCode) {
             case "ArrowDown":
